@@ -6,21 +6,11 @@
 (define w (open-viewport "Julia Set" 300 300))
 ; viewport window appears
 
-
-
-; quick example on how to draw a single Pixel on the screen
-; the posn struct has an #extra-constructore, therefor (make-posn x y),
-; is required here.
-; make-rgb is a bit will look into it tomorrow
-((draw-pixel w) (make-posn 3 5) (make-rgb 0 1 0))
-
 (define (mult-list a n z acc)
   [let ([y (* a z)])
   (cond
     ([= 1 n] (cons 1 (reverse acc)))
     ((mult-list a (- n 1) y (cons y acc))))])
-
-
 
 
 ; if required, can also use the x on the top right to close the window
