@@ -12,13 +12,14 @@
 ; the posn struct has an #extra-constructore, therefor (make-posn x y),
 ; is required here.
 ; make-rgb is a bit will look into it tomorrow
-((draw-pixel w) (make-posn 3 5) (make-rgb 0 1 0))
+((draw-pixel w) (make-posn 3 5) "red")
 
-(define (mult-list a n z acc)
-  [let ([y (* a z)])
-  (cond
-    ([= 1 n] (cons 1 (reverse acc)))
-    ((mult-list a (- n 1) y (cons y acc))))])
+(define (mult-list p n c acc)
+  [let ([newp (+ [+ (sqr p) n] c)])
+    [(draw-pixel w) (make-posn newp n) "blue"]
+    (cond
+      ([= 8 n] acc)
+      ((mult-list newp (+ n 1) c (cons newp acc))))])
 
 
 
