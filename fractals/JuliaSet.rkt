@@ -1,5 +1,6 @@
 #lang racket
 (require graphics/graphics)
+(require 2htdp/image)
 
 (open-graphics)
 
@@ -11,6 +12,9 @@
 ; is required here.
 ; make-rgb is a bit will look into it tomorrow
 ((draw-pixel w) (make-posn 3 5) "red")
+((draw-pixel w) (make-posn 5 8) "red")
+((draw-pixel w) (make-posn 6 8) "blue")
+;;(square 1.0 "solid" "red")
 
 (define (mult-list p n c acc)
   [let ([newp (+ [+ (sqr p) n] c)])
